@@ -1,7 +1,3 @@
-#filenot found error to be resolved 
-#same filename at destination folder issue to be resolved
-
-
 import os
 import time
 import shutil
