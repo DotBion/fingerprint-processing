@@ -5,8 +5,41 @@ import shutil
 file_name = "C:\\Program Files\Mantra\\MFS100\\Driver\\MFS100Test\\FingerData\\FingerImage.bmp"
 destination_parent_dir = "D:\\fingerprints\\"
 
+def track_file_changes(file_name, destination_folder):
+    original_file_mtime = os.path.getmtime(file_name)
+    #print("file-mtime: ",original_file_mtime)
+    while True:
+        # if i==10:
+        #         update_directory(file_name)
+        new_file_mtime = os.path.getmtime(file_name)
+        if original_file_mtime != new_file_mtime:
+            new_file_name = "impression_"+str(new_file_mtime)
+            #check nfiq score
+            
+            #check singular points co-ord
+            #if both exists save file else retake
+            copy_file(file_name, destination_folder, new_file_name)
+            original_file_mtime = new_file_mtime
+        time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def update_directory(file_name,destination_parent_dir="D:\\fingerprints\\"):
-    dir_name=input('Enter User Name')
+    dir_name=input('Enter User Name: ')
     #parent_dir = "D:\\fingerprints\\"
     path = os.path.join(destination_parent_dir, dir_name)
     os.mkdir(path)
