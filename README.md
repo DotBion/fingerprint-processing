@@ -12,3 +12,6 @@ Change the file_name variable with the desired 'path/filename' whose changes are
 
 Change the destination folder to the desired path where the file is to be copied.
 
+## fingerprint-pipeline.py
+
+This script takes in fingerprint impressions, checks if it has the threshold NFIQ2 score and atleast one core-point. 
