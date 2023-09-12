@@ -1,3 +1,5 @@
+#256x364 
+
 import os
 import time
 import shutil
@@ -76,7 +78,7 @@ def track_file_changes(file_name, destination_folder):
             print()
             #check nfiq score
             score = get_nfiq2(file_name)
-            if( score > "40") :
+            if( score > "30") :
                 #calculate core-points
                 print("Finding Core Points")
                 core_points=get_core_points(file_name,new_file_name)
@@ -96,7 +98,6 @@ def track_file_changes(file_name, destination_folder):
             original_file_mtime = new_file_mtime
             print()
         time.sleep(1)
-
 
 if __name__ == "__main__":
     track_file_changes(file_name, destination_parent_dir)

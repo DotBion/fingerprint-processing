@@ -26,7 +26,7 @@
 # 	app.run()
 
 # ---------------------------------------------------
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 import os
 import cv2  
 import subprocess
@@ -42,8 +42,10 @@ app = Flask(__name__)
 def success(name):
     print("asda: ",core_points)
     #name = name.split('/')
-    return 'fingerprint scan comlete for %s \ncalculating nfiq2 score : %s ' % name % core_points
-
+    values = {'fingerprint_id': 123456, 'fingerprint_name': name}
+    #return Flask.jsonify(values)
+    #return 'fingerprint scan comlete for# %s \ncalculating nfiq2 score :' % name
+    return render_template('index.html', values=values)
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():

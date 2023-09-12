@@ -22,7 +22,7 @@ import numpy as np
 from walking import walking, walkonce, checkstable, mergeneighbors
 
 im = cv2.imread('D:\\#fp-codes\\fingerprint-processing\\test_images\\pk-lr.bmp',0) #make changes here
-
+#im = cv2.imread('D:\\fingerprints\\santosh\\prerana-lm\\impression3.bmp',0)
 stacked_img = np.stack((im,)*3, axis=-1)
 
 detect_SP = walking(im)
@@ -39,6 +39,13 @@ if min(detect_SP['delta'].shape) !=0:
 		pts = np.array([[x,y-10], [x-9,y+5], [x+9,y+5]])
 		stacked_img = cv2.polylines(stacked_img, [pts], True, (0,255,0), 2)
 
-cv2.imwrite('D:\\#fp-codes\\fingerprint-processing\\results\\pk-lr.bmp', stacked_img) #make changes here
+cv2.imwrite('D:\\#fp-codes\\fingerprint-processing\\results\\1.bmp', stacked_img) #make changes here
 
 print(detect_SP)
+
+print(detect_SP['core'])
+print(type(detect_SP['core']))
+print(np.any(detect_SP['core']))
+for i in detect_SP['core']:
+	print(i)
+print(detect_SP['core'][0])
